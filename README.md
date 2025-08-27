@@ -6,8 +6,9 @@ It provides information about blood donation, hospital services, privacy policie
 Project Structure
 Sanbs Website
 sanbs website/
-│── index.html              # Home page
-│── about.html              # About SANBS
-│── privacy-policy.html     # Privacy Policy
-│── style.css               # Stylesheet
-└── README.md               # Project documentation
+│── index.html              Home page
+│── about.html              About SANBS
+│── where-to-donate.html    Where to donate?
+│── why-donate.html         Why donate?
+│── style.css               Stylesheet
+└── README.md               Project documentation
