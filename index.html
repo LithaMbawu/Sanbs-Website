@@ -2,54 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>SANBS - Save a Life</title>
+  <meta name="description" content="SANBS - South African National Blood Service. Save lives by donating blood. Find centres, stock levels and more.">
+  <link rel="stylesheet" href="style.css">
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; }
-    header { background: orange; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
-    header nav a { margin: 0 10px; text-decoration: none; font-weight: bold; color: white; }
-    .hero { text-align: center; padding: 30px; }
-    .cards { display: flex; justify-content: center; gap: 20px; padding: 20px; }
-    .card { padding: 20px; background: lightgray; border-radius: 5px; text-align: center; width: 150px; text-decoration: none; }
-    footer { background: red; color: white; text-align: center; padding: 20px; }
-    a.card:hover { opacity: 0.8; }
+    body { margin:0; font-family: Arial, sans-serif; background:#f9f9f9; }
+    header { background: linear-gradient(90deg, #e63946, #ff7b00); padding:15px; display:flex; justify-content:space-between; align-items:center; }
+    header h1 { color:white; margin:0; }
+    header nav a { margin:0 10px; text-decoration:none; font-weight:bold; color:white; transition:0.3s; }
+    header nav a:hover { color:yellow; }
+
+    .hero { 
+      background: url('https://images.unsplash.com/photo-1603398938378-0d65eb4c1e4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover; 
+      text-align:center; 
+      padding:80px 20px;
+    }
+    .hero h2 { font-size:2.5em; margin-bottom:15px; color:black; } /* ✅ changed to black */
+    .hero p { font-size:1.2em; max-width:700px; margin:auto; color:black; } /* ✅ changed to black */
+
+    .cards { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; padding:30px; }
+    .card { 
+      padding:20px; 
+      border-radius:10px; 
+      text-align:center; 
+      width:200px; 
+      text-decoration:none; 
+      font-weight:bold;
+      transition:transform 0.3s, box-shadow 0.3s; 
+    }
+    .card:hover { transform:scale(1.05); box-shadow:0 4px 12px rgba(0,0,0,0.2); }
+
+    .mission { padding:40px; background: linear-gradient(90deg, #ffe8d6, #fff); text-align:center; }
+    .mission h2 { color:#d62828; }
+    .mission p { max-width:600px; margin:auto; font-size:1.1em; }
+
+    footer { background:#d62828; color:white; text-align:center; padding:20px; }
+    footer a { color:white; margin:0 5px; text-decoration:none; }
+    footer a:hover { text-decoration:underline; }
   </style>
 </head>
 <body>
 
   <header>
-    <h1 style="color:white;">SANBS</h1>
+    <h1>SANBS</h1>
     <nav>
       <a href="index.html">Home</a>
-      <a href="privacy-policy.html">Privacy Policy</a>
       <a href="about.html">About Us</a>
+      <a href="where-to-donate.html">Where to Donate</a>
+      <a href="blood-stock.html">Blood Stock</a>
+      <a href="why-donate.html">Why Donate</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
     </nav>
   </header>
 
-  <div class="hero">
-    <h2>Save a Life, Give Blood</h2>
-    <p>Donating blood is a simple act of kindness that saves lives every day. Join thousands of South Africans in making a difference.</p>
-  </div>
-
-  <section class="cards">
-    <a href="where-to-donate.html" class="card" style="background:blue; color:white;">WHERE TO DONATE?</a>
-    <a href="blood-stock.html" class="card" style="background:green; color:white;">BLOOD STOCK LEVEL</a>
-    <a href="why-donate.html" class="card" style="background:pink; color:black;">WHY DONATE?</a>
+  <section class="hero">
+    <h2>Save a Life, Give Blood ❤️</h2>
+    <p>Every drop counts! Donating blood is a simple act of kindness that saves lives every day. Join thousands of South Africans in making a difference.</p>
   </section>
 
-  <section style="padding:20px; background:beige;">
+  <section class="cards">
+    <a href="where-to-donate.html" class="card" style="background:#0077b6; color:white;">WHERE TO DONATE?</a>
+    <a href="blood-stock.html" class="card" style="background:#38b000; color:white;">BLOOD STOCK LEVEL</a>
+    <a href="why-donate.html" class="card" style="background:#ffb703; color:black;">WHY DONATE?</a>
+  </section>
+
+  <section class="mission">
     <h2>Our Mission</h2>
     <p>To reliably provide trusted blood products and services to all patients at a level of cost, efficiency, and quality that inspires public trust and confidence.</p>
   </section>
 
   <footer>
     <p>&copy; 2025 SANBS | Follow us on 
-      <a href="#" style="color:white;">Facebook</a> | 
-      <a href="#" style="color:white;">Twitter</a> | 
-      <a href="#" style="color:white;">Instagram</a>
+      <a href="#">Facebook</a> | 
+      <a href="#">Twitter</a> | 
+      <a href="#">Instagram</a>
     </p>
     <p>Contact: 0800 11 9031 | info@sanbs.org.za</p>
   </footer>
 
 </body>
 </html>
+
+
+
 
