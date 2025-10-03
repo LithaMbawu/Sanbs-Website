@@ -1,0 +1,118 @@
+/* General Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fdfdfd;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background-color: #ff6b00;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 12px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #ffe4c4;
+  padding: 30px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+/* Page Content Styling */
+main, .content, section {
+  padding: 20px;
+  max-width: 960px;
+  margin: auto;
+}
+
+/* Section Headings */
+h2, h3 {
+  color: #ff6b00;
+  margin-top: 30px;
+}
+
+/* Call to Action Button */
+.btn {
+  display: inline-block;
+  background-color: #28a745;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #218838;
+}
+
+/* Blood Stock Status Colors */
+ul li {
+  margin-bottom: 8px;
+}
+
+.available {
+  color: #28a745; /* green */
+  font-weight: bold;
+}
+
+.low {
+  color: #ffc107; /* gold */
+  font-weight: bold;
+}
+
+.critical {
+  color: #b00020; /* dark red */
+  font-weight: bold;
+}
+
+/* Lists */
+ul {
+  padding-left: 20px;
+  list-style: disc;
+}
+
+/* CTA Section */
+.cta {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* Footer */
+footer {
+  background-color: #cc0000;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+footer a {
+  color: white;
+  text-decoration: underline;
+}
