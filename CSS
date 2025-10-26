@@ -1,118 +1,199 @@
-/* General Reset */
-body {
+/* ========== RESET ========== */
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #fdfdfd;
-  color: #333;
-  line-height: 1.6;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Header */
+/* ========== BASE STYLE ========== */
+:root {
+  --primary-red: #b30000;
+  --charcoal: #333333;
+  --white: #ffffff;
+  --gold: #d4af37;
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--charcoal);
+  background-color: var(--white);
+  margin: 0;
+}
+
+/* ========== HEADER & NAV ========== */
 header {
-  background-color: #ff6b00;
-  color: white;
-  padding: 20px;
+  background-color: var(--primary-red);
+  color: var(--white);
+  padding: 1.2rem 2rem;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 header h1 {
-  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  letter-spacing: 1px;
 }
 
-nav a {
-  color: white;
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+nav ul li a {
+  color: var(--white);
   text-decoration: none;
-  margin: 0 12px;
-  font-weight: bold;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  transition: 0.3s ease;
 }
 
-nav a:hover {
-  text-decoration: underline;
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: var(--gold);
+  color: var(--charcoal);
 }
 
-/* Hero Section */
+/* ========== HERO SECTION ========== */
 .hero {
-  background-color: #ffe4c4;
-  padding: 30px;
   text-align: center;
-  border-radius: 8px;
-  margin: 20px;
+  padding: 4rem 2rem;
+  background: linear-gradient(to right, var(--primary-red), #8b0000);
+  color: var(--white);
 }
 
-/* Page Content Styling */
-main, .content, section {
-  padding: 20px;
-  max-width: 960px;
-  margin: auto;
+.hero h2 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
-/* Section Headings */
-h2, h3 {
-  color: #ff6b00;
-  margin-top: 30px;
+.hero p {
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+  font-size: 1.1rem;
 }
 
-/* Call to Action Button */
 .btn {
-  display: inline-block;
-  background-color: #28a745;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 5px;
+  background-color: var(--gold);
+  color: var(--charcoal);
   text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+  padding: 0.8rem 1.2rem;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #218838;
+  background-color: var(--white);
+  color: var(--primary-red);
 }
 
-/* Blood Stock Status Colors */
-ul li {
-  margin-bottom: 8px;
+/* ========== SECTIONS ========== */
+section {
+  padding: 2.5rem 2rem;
+  max-width: 1000px;
+  margin: auto;
 }
 
-.available {
-  color: #28a745; /* green */
-  font-weight: bold;
+section h3 {
+  font-family: var(--font-heading);
+  color: var(--primary-red);
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
 }
 
-.low {
-  color: #ffc107; /* gold */
-  font-weight: bold;
-}
-
-.critical {
-  color: #b00020; /* dark red */
-  font-weight: bold;
-}
-
-/* Lists */
 ul {
-  padding-left: 20px;
-  list-style: disc;
+  margin-left: 1.5rem;
 }
 
-/* CTA Section */
-.cta {
+blockquote {
+  border-left: 4px solid var(--gold);
+  padding-left: 1rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+/* ========== TABLE (BLOOD STOCK) ========== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.8rem;
   text-align: center;
-  margin-top: 40px;
 }
 
-/* Footer */
+th {
+  background-color: var(--primary-red);
+  color: var(--white);
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* ========== FOOTER ========== */
 footer {
-  background-color: #cc0000;
-  color: white;
+  background-color: var(--charcoal);
+  color: var(--white);
   text-align: center;
-  padding: 20px;
-  margin-top: 50px;
+  padding: 1.2rem;
+  font-size: 0.9rem;
 }
 
-footer a {
-  color: white;
-  text-decoration: underline;
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Tablet */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul {
+    justify-content: center;
+  }
+
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+
+  section {
+    padding: 2rem 1rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    display: inline-block;
+    width: 80%;
+    text-align: center;
+  }
+
+  table, th, td {
+    font-size: 0.9rem;
+  }
 }
