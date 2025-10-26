@@ -1,25 +1,29 @@
-Changelog
-All changes to the SANBS static website project will be documented in this file.
-Initial project structure with the following pages:
-  - `index.html` (Home)
-  - `about.html`
-  - `why-donate.html`
-  - `where-to-donate.html`
-  - `blood-stock.html`
-  - `privacy-policy.html`
-- Responsive and accessible layout using semantic HTML5 (`<header>`, `<main>`, `<section>`, `<footer>`, etc.)
-- External stylesheet: `css/style.css`
-  - Header, footer, cards, hero section, CTA button
-  - Color-coded blood stock levels (`available`, `low`, `critical`)
-- Wireframes created for all pages to visualize layout
-- Placeholder content and internal navigation for all pages
-- Cleaned up duplicated HTML structure
-- Applied consistent semantic markup across all pages
-- Improved layout by grouping content into appropriate sections
-Planned
-- Add Google Maps embed for `where-to-donate.html`
-- Add form or newsletter sign-up
-- Mobile responsiveness with media queries
-- Accessibility audit and improvements (e.g. ARIA roles, labels)
+10 Oct 2025
+Base structure - Created HTML pages and navigation links
+12 Oct 2025
+Content update - Added SANBS information, headings, and text blocks
+15 Oct 2025
+Visual enhancements - Added images, colours, and basic typography
+20 Oct 2025
+CSS integration - Linked style.css and applied core styling
+22 Oct 2025
+Layout improvement - Implemented Flexbox for section alignment
+22 Oct 2025
+Responsive design - Added media queries for mobile/tablet
+22 Oct 2025
+Interactivity - Added hover and focus pseudo-class styling
+22 Oct 2025
+Content expansion - Extended page content and refined layout
+22 Oct 2025
+Documentation - Completed detailed README and added references
+
+
+
+
+
+
+
+
+
 
 
