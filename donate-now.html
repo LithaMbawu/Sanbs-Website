@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Donate Now - SANBS</title>
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+<style>
+  body { font-family: Arial, sans-serif; background: #f5f5f5; margin: 20px; }
+  h1 { color: #ff6b00; }
+  form { background: #fff; padding: 20px; max-width: 600px;
+         border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+  label { font-weight: bold; margin-top: 10px; display: block; }
+  select, input { width: 100%; padding: 8px; margin-top: 5px; }
+  input[type="submit"] {
+    background: #ff6b00;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  #map {
+    height: 400px;
+    margin-top: 20px;
+    border: 2px solid #ff6b00;
+    border-radius: 8px;
+  }
+  footer { margin-top: 30px; text-align: center; }
+</style>
+</head>
+
+<body>
+
+<h1>Donate Now</h1>
+<p>Please fill out the form below to book your donation.</p>
+
+<h1>Donor Centre Map</h1>
+<div id="map"></div>
+
+<form id="donationForm">
+  <label>Select Donation Location:</label>
+  <select id="location" required>
+    <option value="">-- Select Area --</option>
+    <option value="Johannesburg">Johannesburg</option>
+    <option value="Pretoria">Pretoria</option>
+    <option value="Durban">Durban</option>
+  </select>
+
+  <label>Donation Type:</label>
+  <select id="donation-type" required>
+    <option value="">--Select Type--</option>
+    <option value="whole">Whole Blood (every 56 days)</option>
+    <option value="plasma">Plasma (every 2 weeks)</option>
+    <option value="platelets">Platelets (every month)</option>
+  </select>
+
+  <label>Date of Last Donation:</label>
+  <input type="date" id="last-donation" required>
+
+  <label>Select Your Preferred Donation Date:</label>
+  <input type="date" id="donation-date" required>
+
+  <input type="submit" value="Book Donation">
+</form>
+
+<footer>
+  <p>&copy; 2025 SANBS | Contact: info@sanbs.org.za</p>
+</footer>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+// --- Initialize Map ---
+const map = L.map("map").setView([-28.5, 24], 6); // South Africa view
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution: "© OpenStreetMap"
+}).addTo(map);
+
+// --- Centres for each region ---
+const centreData = {
+  "Johannesburg": [
+    { name: "SANBS Johannesburg Centre", coords: [-26.2041, 28.0473] },
+    { name: "Sandton City Donor Centre", coords: [-26.1076, 28.0567] },
+    { name: "Eastgate Donor Centre", coords: [-26.1793, 28.1243] },
+    { name: "Mall of Africa Donor Centre", coords: [-25.9881, 28.1087] }
+  ],
+
+  "Pretoria": [
+    { name: "SANBS Pretoria Centre (Hatfield)", coords: [-25.7460, 28.2400] },
+    { name: "Menlyn Park Donor Centre", coords: [-25.7832, 28.2751] },
+    { name: "Brooklyn Mall Donor Centre", coords: [-25.7692, 28.2361] },
+    { name: "Wonderpark Donor Centre", coords: [-25.6781, 28.1351] }
+  ],
+
+  "Durban": [
+    { name: "SANBS Durban Centre (Pinetown)", coords: [-29.8194, 30.8865] },
+    { name: "Gateway Donor Centre", coords: [-29.7265, 31.0675] },
+    { name: "Chatsworth Donor Centre", coords: [-29.9267, 30.8784] },
+    { name: "KwaMashu Donor Centre", coords: [-29.7448, 30.9933] }
+  ]
+};
+
+// Active markers
+let currentMarkers = [];
+
+// When user selects region
+document.getElementById("location").addEventListener("change", () => {
+  const region = document.getElementById("location").value;
+
+  // Remove existing markers
+  currentMarkers.forEach(m => map.removeLayer(m));
+  currentMarkers = [];
+
+  if (!region || !centreData[region]) return;
+
+  const centres = centreData[region];
+
+  // Add markers for that area
+  centres.forEach(c => {
+    const marker = L.marker(c.coords).addTo(map).bindPopup(`<b>${c.name}</b>`);
+    currentMarkers.push(marker);
+  });
+
+  // Fit map around markers
+  const group = L.featureGroup(currentMarkers);
+  map.fitBounds(group.getBounds(), { padding: [30, 30] });
+});
+
+// Form validation
+document.getElementById("donationForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const donationType = document.getElementById("donation-type").value;
+  const lastDonationValue = document.getElementById("last-donation").value;
+
+  if (!lastDonationValue) {
+    alert("Please enter your last donation date.");
+    return;
+  }
+
+  const lastDonation = new Date(lastDonationValue);
+  const today = new Date();
+
+  const requiredDays =
+    donationType === "whole" ? 56 :
+    donationType === "plasma" ? 14 :
+    30;
+
+  const diffDays = (today - lastDonation) / (1000 * 60 * 60 * 24);
+
+  if (diffDays < requiredDays) {
+    alert(`You must wait ${Math.ceil(requiredDays - diffDays)} more day(s).`);
+    return;
+  }
+
+  alert("Your donation has been booked successfully!");
+  this.reset();
+});
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+

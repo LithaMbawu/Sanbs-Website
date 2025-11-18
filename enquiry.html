@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enquiry Form - SANBS</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){
+      emailjs.init("yamob9uqCpd8ILA5w"); 
+    })();
+  </script>
+
+  <!-- 🔴 RED THEME -->
+  <style>
+    main {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #fff5f5;
+      border-radius: 10px;
+      border: 2px solid #cc0000;
+    }
+
+    header h1 {
+      color: #cc0000;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    label {
+      font-weight: bold;
+      color: #cc0000;
+      margin-top: 10px;
+      display: block;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 2px solid #ff9999;
+      border-radius: 6px;
+      font-size: 1rem;
+      background: white;
+      transition: 0.3s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #cc0000;
+      box-shadow: 0 0 4px rgba(204, 0, 0, 0.5);
+      outline: none;
+    }
+
+    button[type="submit"] {
+      background: #cc0000;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      width: 100%;
+      transition: 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background: #a30000;
+    }
+
+    #formMessage {
+      font-size: 1.1rem;
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+    <h1>Enquiry Form</h1>
+  </header>
+
+  <main>
+    <h1>Make an Enquiry</h1>
+
+    <form id="enquiryForm">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required minlength="2" maxlength="50">
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="0123456789" required>
+
+      <label for="enquiryType">Enquiry Type:</label>
+      <select id="enquiryType" name="enquiryType" required>
+        <option value="">--Select--</option>
+        <option value="services">Services</option>
+        <option value="volunteer">Volunteer</option>
+        <option value="sponsor">Sponsor</option>
+      </select>
+
+      <label for="details">Details / Questions:</label>
+      <textarea id="details" name="details" rows="5" required minlength="10" maxlength="500"></textarea>
+
+      <button type="submit">Submit Enquiry</button>
+    </form>
+
+    <p id="formMessage" style="font-weight:bold;"></p>
+  </main>
+
+  <script>
+    const form = document.getElementById('enquiryForm');
+    const formMessage = document.getElementById('formMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        enquiryType: document.getElementById('enquiryType').value,
+        details: document.getElementById('details').value
+      };
+
+      emailjs.send('service_2ba8otn', 'template_i9angzj', formData)
+        .then(function(response) {
+          console.log('SUCCESS!', response.status, response.text);
+          formMessage.textContent = 'Enquiry submitted successfully!';
+          formMessage.style.color = 'green';
+          form.reset();
+        }, function(error) {
+          console.log('FAILED...', error);
+          formMessage.textContent = 'Oops! Something went wrong. Please try again.';
+          formMessage.style.color = 'red';
+        });
+    });
+  </script>
+
+</body>
+</html>
+
+
+
+
+
