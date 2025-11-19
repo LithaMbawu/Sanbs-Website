@@ -353,3 +353,9 @@ function initTabs(){
     });
   });
 }
+
+
+
+    function loadPage(page) {
+      document.getElementById("content").src = 'html/'+page;
+    }
