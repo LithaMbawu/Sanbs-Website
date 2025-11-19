@@ -5,72 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Blood Stock Levels - SANBS</title>
   <meta name="description" content="Check current blood stock levels in South Africa and learn what they mean." />
+  <meta name="keywords" content="blood donation, SANBS, blood stock, South Africa, donate blood, blood types, emergency, health" />
+  <meta name="author" content="South African National Blood Service" />
+  <meta name="robots" content="index, follow" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="../CSS">
+  <link rel="icon" href="../Images/imagessanbs/South_African_National_Blood_Service_logo.svg" type="image/svg+xml">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+    }
+    main {
+      max-width: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+      background: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+  </style>
 </head>
 
 <body>
   <main>
-    <h1>Current Blood Stock Levels</h1>
+    <h1 style="color:#111;">Blood Stock Levels</h1>
     <p>Blood levels are monitored daily to ensure we can support hospitals across South Africa.</p>
 
-    <!-- Accordions -->
-    <button class="accordion">O+ Blood</button>
-    <div class="panel">
-      <p>Status: <span class="available">Available</span></p>
-      <p>O+ is one of the most common blood types. Donations are needed regularly.</p>
-    </div>
-
-    <button class="accordion">A+ Blood</button>
-    <div class="panel">
-      <p>Status: <span class="available">Available</span></p>
-      <p>A+ donations help patients undergoing surgeries and emergency care.</p>
-    </div>
-
-    <button class="accordion">B+ Blood</button>
-    <div class="panel">
-      <p>Status: <span class="low">Low</span></p>
-      <p>Low stock: donors are encouraged to give B+ blood as soon as possible.</p>
-    </div>
-
-    <button class="accordion">AB+ Blood</button>
-    <div class="panel">
-      <p>Status: <span class="critical">Urgent Need</span></p>
-      <p>We need more AB+ donations soon. Please consider donating if you are able.</p>
-    </div>
-
-    <!-- Legend -->
-    <button class="accordion">Stock Level Legend</button>
-    <div class="panel">
-      <ul>
-        <li><span class="available">Available</span>: Sufficient for current needs.</li>
-        <li><span class="low">Low</span>: Shortage possible; donors encouraged.</li>
-        <li><span class="critical">Critical</span>: Urgent need; immediate donations required.</li>
-      </ul>
-    </div>
-
     <!-- Tabs -->
-    <section class="tabs">
-      <div class="tab-buttons">
-        <button class="tab-btn active" data-tab="johannesburg">Johannesburg</button>
-        <button class="tab-btn" data-tab="cape-town">Cape Town</button>
-        <button class="tab-btn" data-tab="durban">Durban</button>
+    <section class="tabs" aria-label="Blood Stock by Province">
+      <div class="tab-buttons" role="tablist">
+        <button class="tab-btn active" data-tab="johannesburg" role="tab" aria-selected="true" aria-controls="johannesburg">Johannesburg</button>
+        <button class="tab-btn" data-tab="cape-town" role="tab" aria-selected="false" aria-controls="cape-town">Cape Town</button>
+        <button class="tab-btn" data-tab="durban" role="tab" aria-selected="false" aria-controls="durban">Durban</button>
       </div>
 
-      <div id="johannesburg" class="tab-content active">
-        <p>O+: Available | A+: Available | B+: Low | AB+: Critical</p>
+      <div id="johannesburg" class="tab-content active" role="tabpanel" aria-labelledby="johannesburg">
+        <h2>Blood Stock Levels - Johannesburg</h2>
+        <ul>
+          <li>O+: <span class="pill available">Available</span></li>
+          <li>A+: <span class="pill available">Available</span></li>
+          <li>B+: <span class="pill low">Low</span></li>
+          <li>AB+: <span class="pill critical">Critical</span></li>
+        </ul>
       </div>
-      <div id="cape-town" class="tab-content">
-        <p>O+: Available | A+: Low | B+: Available | AB+: Low</p>
+      <div id="cape-town" class="tab-content" role="tabpanel" aria-labelledby="cape-town">
+        <h2>Blood Stock Levels - Cape Town</h2>
+        <ul>
+          <li>O+: <span class="pill available">Available</span></li>
+          <li>A+: <span class="pill low">Low</span></li>
+          <li>B+: <span class="pill available">Available</span></li>
+          <li>AB+: <span class="pill low">Low</span></li>
+        </ul>
       </div>
-      <div id="durban" class="tab-content">
-        <p>O+: Critical | A+: Available | B+: Low | AB+: Available</p>
+      <div id="durban" class="tab-content" role="tabpanel" aria-labelledby="durban">
+        <h2>Blood Stock Levels - Durban</h2>
+        <ul>
+          <li>O+: <span class="pill critical">Critical</span></li>
+          <li>A+: <span class="pill available">Available</span></li>
+          <li>B+: <span class="pill low">Low</span></li>
+          <li>AB+: <span class="pill available">Available</span></li>
+        </ul>
       </div>
     </section>
 
     <!-- GALLERY -->
-    <section class="gallery" id="gallery-grid">
-      <img src="../Images/imagessanbs/BloodDrive.PNG" alt="Blood Drive Event" class="lightbox-img">
+    <section class="gallery" id="gallery-grid" aria-label="Blood Donation Gallery">
+      <img src="../Images/imagessanbs/BloodDrive.PNG" alt="Blood Drive Event at SANBS" class="lightbox-img">
       <img src="../Images/imagessanbs/DonationCenter.PNG" alt="SANBS Donation Center" class="lightbox-img">
     </section>
 
@@ -83,15 +90,15 @@
       <div class="lightbox-caption"></div>
     </div>
 
-    <section class="cta">
+    <section class="cta" aria-label="Call to Action">
       <h2>Donate Now</h2>
       <p>Your donation can make a difference. 
-        <a href="donate-now.html" class="btn">Book a Donation</a>
+        <a href="donate-now.html" class="btn" aria-label="Book a Donation">Book a Donation</a>
       </p>
     </section>
 
     <!-- Product Explanations -->
-    <section class="product-explanations">
+    <section class="product-explanations" aria-label="Blood Product Explanations">
       <h2>Blood Product Explanations</h2>
       <ul>
         <li><strong>Whole Blood:</strong> Whole blood is the blood collected directly from a donor. It contains red cells, white cells, platelets, and plasma. It is used in trauma cases and surgeries where patients need all blood components.</li>
@@ -99,12 +106,8 @@
         <li><strong>Platelets:</strong> Platelets are small cell fragments that help blood clot. Platelet transfusions are vital for cancer patients, those undergoing chemotherapy, and people with bleeding disorders.</li>
       </ul>
     </section>
-  </main>
 
-  <!-- STOCK -->
-  <main>
-    <h1>Blood Stock Levels</h1>
-    <div id="stock-table"></div>
+    <div id="stock-table" aria-label="Blood Stock Table"></div>
   </main>
 
   <script src="../JS.js"></script>

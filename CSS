@@ -322,11 +322,10 @@ lightbox-arrow.right { right: 10px; }
 .tab-buttons button.active { background-color: #e55b00; }
 .tab-content {
   display: none;
-  background-color: #ffe4c4;
-  padding: 15px;
-  border-radius: 5px;
 }
-.tab-content.active { display: block; }
+.tab-content.active {
+  display: block;
+}
 
 /* Gallery */
 .gallery {
@@ -613,11 +612,10 @@ lightbox-close {
     .tab-buttons button.active { background-color: #e55b00; }
     .tab-content {
       display: none;
-      background-color: #ffe4c4;
-      padding: 15px;
-      border-radius: 5px;
     }
-    .tab-content.active { display: block; }
+    .tab-content.active {
+      display: block;
+    }
 
     /* Gallery */
     .gallery {
@@ -633,4 +631,12 @@ lightbox-close {
       transition: transform 0.3s ease;
     }
     .gallery img:hover { transform: scale(1.05); }
+
+    .tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
 

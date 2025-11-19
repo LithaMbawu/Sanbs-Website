@@ -11,14 +11,14 @@ const DATA = {
   ],
 
   stock: [
-    { type:"O+", status:"Available" },
-    { type:"A+", status:"Available" },
-    { type:"B+", status:"Low" },
-    { type:"AB+", status:"Critical" },
-    { type:"O-", status:"Low" },
-    { type:"A-", status:"Available" },
-    { type:"B-", status:"Available" },
-    { type:"AB-", status:"Critical" }
+    { type:"O+", status:"Available", amount: 120 },
+    { type:"A+", status:"Available", amount: 95 },
+    { type:"B+", status:"Low", amount: 40 },
+    { type:"AB+", status:"Critical", amount: 12 },
+    { type:"O-", status:"Low", amount: 30 },
+    { type:"A-", status:"Available", amount: 60 },
+    { type:"B-", status:"Available", amount: 55 },
+    { type:"AB-", status:"Critical", amount: 8 }
   ],
 
   
@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initAccordion();
   initTabs();
   initDonationTypeExplanation();
+  initBloodStockTabs();
 
   
   initProvinceMap();
@@ -346,6 +347,13 @@ function initAccordion(){
       btn.classList.toggle("active");
       const panel = btn.nextElementSibling;
       panel.style.display = panel.style.display === "block" ? "none" : "block";
+      // Dynamic stock amount logic
+      const stockSpan = panel.querySelector('.stock-amount');
+      if(stockSpan) {
+        const bloodType = stockSpan.getAttribute('data-blood');
+        const stock = DATA.stock.find(s => s.type === bloodType);
+        stockSpan.textContent = stock ? stock.amount : '--';
+      }
     });
   });
 }
@@ -405,4 +413,17 @@ function showProductExplanation() {
     text = '';
   }
   box.innerHTML = text;
+}
+
+function initBloodStockTabs() {
+  const buttons = document.querySelectorAll('.tab-btn');
+  const contents = document.querySelectorAll('.tab-content');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
 }

@@ -39,6 +39,21 @@
     <p>Contact: 0800 11 9031 | info@sanbs.org.za</p>
   </footer>
 
+  <script>
+
+  const socialLinks = document.querySelectorAll('.social-link');
+  socialLinks.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+      link.style.transform = 'scale(1.15)';
+      link.style.color = '#e30613';
+      link.style.transition = 'all 0.3s';
+    });
+    link.addEventListener('mouseleave', () => {
+      link.style.transform = 'scale(1)';
+      link.style.color = '';
+    });
+  });
+  </script>
 
 </body>
 </html>

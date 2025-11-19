@@ -1,18 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us - SANBS</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact SANBS</title>
+  <meta name="description" content="Contact the South African National Blood Service for enquiries, support, or feedback." />
+  <meta name="keywords" content="contact, SANBS, blood donation, South Africa, support, enquiry" />
+  <meta name="author" content="South African National Blood Service" />
+  <meta name="robots" content="index, follow" />
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="../CSS">
-  
+  <link rel="icon" href="../Images/imagessanbs/South_African_National_Blood_Service_logo.svg" type="image/svg+xml">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+    }
+    main {
+      max-width: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+      background: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+  </style>
 </head>
 <body>
 
   <main>
-
-    <div id="successBox">Message sent successfully!</div>
 
     <h1>Send Us a Message</h1>
 
@@ -39,6 +61,8 @@
       <textarea id="message" rows="5" required minlength="10" maxlength="500"></textarea>
 
       <button type="submit">Send Message</button>
+
+      <div id="successBox" style="display:none; color:green; margin-top:10px; font-weight:bold;">Your message has been submitted successfully! Thank you for contacting SANBS.</div>
     </form>
 
   </main>
