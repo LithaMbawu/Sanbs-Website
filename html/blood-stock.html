@@ -6,123 +6,7 @@
   <title>Blood Stock Levels - SANBS</title>
   <meta name="description" content="Check current blood stock levels in South Africa and learn what they mean." />
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Accordion, Tabs, Gallery & Lightbox CSS -->
-  <style>
-    /* Accordion */
-    .accordion {
-      background-color: #ff6b00;
-      color: #fff;
-      cursor: pointer;
-      padding: 14px;
-      width: 100%;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 1.1rem;
-      transition: background-color 0.3s ease;
-      margin-top: 10px;
-      border-radius: 5px;
-    }
-    .accordion:hover { background-color: #ff851b; }
-    .accordion.active { background-color: #e55b00; }
-    .accordion + .panel {
-      padding: 0 18px;
-      background-color: #ffe4c4;
-      display: none;
-      overflow: hidden;
-      border-radius: 0 0 5px 5px;
-      margin-bottom: 10px;
-    }
-
-    /* Tabs */
-    .tabs { margin-top: 30px; }
-    .tab-buttons {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 10px;
-    }
-    .tab-buttons button {
-      padding: 10px 20px;
-      cursor: pointer;
-      background-color: #ff6b00;
-      border: none;
-      color: white;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-    .tab-buttons button.active { background-color: #e55b00; }
-    .tab-content {
-      display: none;
-      background-color: #ffe4c4;
-      padding: 15px;
-      border-radius: 5px;
-    }
-    .tab-content.active { display: block; }
-
-    /* Gallery */
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 30px 0;
-    }
-    .gallery img {
-      width: calc(50% - 10px);
-      cursor: pointer;
-      border-radius: 5px;
-      transition: transform .3s ease;
-    }
-    .gallery img:hover { transform: scale(1.05); }
-
-    /* Lightbox */
-    #lightbox {
-      position: fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      background: rgba(0,0,0,0.9);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      flex-direction:column;
-      z-index: 9999;
-    }
-    #lightbox.active { display:flex; }
-
-    #lightbox img {
-      max-width:90%;
-      max-height:80%;
-      border-radius:5px;
-    }
-
-    .lightbox-caption {
-      color:#fff;
-      margin-top:10px;
-      font-size:1.1rem;
-    }
-
-    .lightbox-prev, .lightbox-next {
-      position:absolute;
-      top:50%;
-      font-size:3rem;
-      color:#fff;
-      cursor:pointer;
-      padding:15px;
-      user-select:none;
-    }
-    .lightbox-prev { left:20px; }
-    .lightbox-next { right:20px; }
-
-    .lightbox-close {
-      position:absolute;
-      top:15px;
-      right:25px;
-      color:white;
-      font-size:2.5rem;
-      cursor:pointer;
-    }
-  </style>
+  <link rel="stylesheet" href="../CSS">
 </head>
 
 <body>
@@ -151,8 +35,8 @@
 
     <button class="accordion">AB+ Blood</button>
     <div class="panel">
-      <p>Status: <span class="critical">Critical</span></p>
-      <p>Critical shortage! Immediate donations are required.</p>
+      <p>Status: <span class="critical">Urgent Need</span></p>
+      <p>We need more AB+ donations soon. Please consider donating if you are able.</p>
     </div>
 
     <!-- Legend -->
@@ -186,8 +70,8 @@
 
     <!-- GALLERY -->
     <section class="gallery" id="gallery-grid">
-      <img src="imagessanbs/BloodDrive.PNG" alt="Blood Drive Event" class="lightbox-img">
-      <img src="imagessanbs/DonationCenter.PNG" alt="SANBS Donation Center" class="lightbox-img">
+      <img src="../Images/imagessanbs/BloodDrive.PNG" alt="Blood Drive Event" class="lightbox-img">
+      <img src="../Images/imagessanbs/DonationCenter.PNG" alt="SANBS Donation Center" class="lightbox-img">
     </section>
 
     <!-- LIGHTBOX -->
@@ -210,90 +94,10 @@
   <!-- STOCK -->
   <main>
     <h1>Blood Stock Levels</h1>
-    <ul id="stock-summary"></ul>
     <div id="stock-table"></div>
   </main>
 
-
-
-<script>
-/* ----------------- ACCORDION ----------------- */
-document.querySelectorAll(".accordion").forEach(btn => {
-  btn.addEventListener("click", () => {
-    btn.classList.toggle("active");
-    const panel = btn.nextElementSibling;
-    panel.style.display = panel.style.display === "block" ? "none" : "block";
-  });
-});
-
-
-/* ----------------- TABS ----------------- */
-const tabBtns = document.querySelectorAll(".tab-btn");
-const tabContents = document.querySelectorAll(".tab-content");
-
-tabBtns.forEach(btn => {
-  btn.addEventListener("click", () => {
-    tabBtns.forEach(b => b.classList.remove("active"));
-    tabContents.forEach(c => c.classList.remove("active"));
-
-    btn.classList.add("active");
-    document.getElementById(btn.dataset.tab).classList.add("active");
-  });
-});
-
-
-/* ----------------- LIGHTBOX GALLERY ----------------- */
-const galleryImages = document.querySelectorAll(".lightbox-img");
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-image");
-const caption = document.querySelector(".lightbox-caption");
-
-let currentIndex = 0;
-
-galleryImages.forEach((img, index) => {
-  img.addEventListener("click", () => {
-    currentIndex = index;
-    openLightbox(img.src, img.alt);
-  });
-});
-
-function openLightbox(src, alt){
-  lightboxImg.src = src;
-  caption.textContent = alt;
-  lightbox.classList.add("active");
-}
-
-function closeLightbox(){
-  lightbox.classList.remove("active");
-}
-
-document.querySelector(".lightbox-close").onclick = closeLightbox;
-
-document.querySelector(".lightbox-prev").onclick = () => {
-  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-  const img = galleryImages[currentIndex];
-  openLightbox(img.src, img.alt);
-};
-
-document.querySelector(".lightbox-next").onclick = () => {
-  currentIndex = (currentIndex + 1) % galleryImages.length;
-  const img = galleryImages[currentIndex];
-  openLightbox(img.src, img.alt);
-};
-
-lightbox.onclick = e => {
-  if (e.target === lightbox) closeLightbox();
-};
-
-/* Keyboard support */
-document.addEventListener("keydown", e => {
-  if(!lightbox.classList.contains("active")) return;
-  if(e.key === "Escape") closeLightbox();
-  if(e.key === "ArrowRight") document.querySelector(".lightbox-next").click();
-  if(e.key === "ArrowLeft") document.querySelector(".lightbox-prev").click();
-});
-</script>
-
+  <script src="../JS.js"></script>
 </body>
 </html>
 

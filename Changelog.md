@@ -17,6 +17,35 @@ Content expansion - Extended page content and refined layout
 22 Oct 2025
 Documentation - Completed detailed README and added references
 
+1 Nov 2025
+- Updated project documentation and roadmap for November deliverables.
+- Began refactoring for improved maintainability and modularity.
+
+10 Nov 2025
+- Improved accessibility: added ARIA labels and improved keyboard navigation for interactive elements.
+- Enhanced responsive design for mobile and tablet views.
+
+15 Nov 2025
+- Added new donor center locations and updated map data.
+- Improved error handling for all forms and map features.
+- Refined gallery and lightbox experience for better usability.
+
+18 Nov 2025
+- Fixed gallery image path issues and improved error handling for missing images.
+- Refactored JS to remove all inline <script> tags and ensure all logic is in JS.js.
+- Moved all custom and page-specific CSS to the main CSS file for maintainability.
+- Improved and validated form logic for both contact and donation forms.
+- Cleaned up HTML files to remove duplicate or unnecessary markup and ensure only semantic HTML remains.
+
+19 Nov 2025
+- Integrated all interactive JS (accordion, tabs, gallery, lightbox, map, form validation) into JS.js for all pages.
+- Moved all custom and page-specific CSS to the main CSS file for consistent styling.
+- Fixed gallery image paths and added logic to hide broken images.
+- Improved map logic on Donate Now page: donor centers now show and map view resets correctly.
+- Added and styled success messages for contact and donation forms.
+- Cleaned up all HTML files to remove inline scripts/styles and ensure only markup remains.
+- Updated AB+ blood status to 'Urgent Need' for a friendlier message.
+
 
 
 

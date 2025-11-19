@@ -260,7 +260,7 @@ footer a {
 }
 
 .lightbox-arrow.left { left: 10px; }
-.lightbox-arrow.right { right: 10px; }
+lightbox-arrow.right { right: 10px; }
 
 .lightbox-close {
   position: absolute;
@@ -271,90 +271,239 @@ footer a {
   cursor: pointer;
   user-select: none;
 }
-/* =======================
-   Donate Now
-   ======================= */
-/* General body and container styles */
-body {
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-  margin: 0;
-  padding: 0;
-}
 
-main, .content-container {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 0 20px;
-}
-
-h1, h2 {
-  color: #ff6b00;
-}
-
-h1 {
-  font-size: 36px;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-h2 {
-  font-size: 28px;
-  margin-top: 20px;
-}
-
-/* Content boxes */
-.content-box {
-  background: #fff;
-  padding: 25px;
-  margin-bottom: 30px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* Form styling */
-label {
-  display: block;
-  margin-top: 12px;
-  font-weight: bold;
-}
-
-select, input[type="date"], input[type="submit"] {
-  width: 100%;
-  padding: 10px;
-  margin-top: 6px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-input[type="submit"] {
-  background: #ff6b00;
-  color: white;
-  border: none;
+/* Accordion */
+.accordion {
+  background-color: #ff6b00;
+  color: #fff;
   cursor: pointer;
-  margin-top: 15px;
-  padding: 12px;
-  font-size: 18px;
+  padding: 14px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+.accordion:hover { background-color: #ff851b; }
+.accordion.active { background-color: #e55b00; }
+.accordion + .panel {
+  padding: 0 18px;
+  background-color: #ffe4c4;
+  display: none;
+  overflow: hidden;
+  border-radius: 0 0 5px 5px;
+  margin-bottom: 10px;
+}
+
+/* Tabs */
+.tabs { margin-top: 30px; }
+.tab-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.tab-buttons button {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #ff6b00;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.tab-buttons button.active { background-color: #e55b00; }
+.tab-content {
+  display: none;
+  background-color: #ffe4c4;
+  padding: 15px;
+  border-radius: 5px;
+}
+.tab-content.active { display: block; }
+
+/* Gallery */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 30px 0;
+}
+.gallery img {
+  width: calc(50% - 10px);
+  cursor: pointer;
+  border-radius: 5px;
+  transition: transform .3s ease;
+}
+.gallery img:hover { transform: scale(1.05); }
+
+/* Lightbox */
+#lightbox {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.9);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  z-index: 9999;
+}
+#lightbox.active { display:flex; }
+
+#lightbox img {
+  max-width:90%;
+  max-height:80%;
+  border-radius:5px;
+}
+
+.lightbox-caption {
+  color:#fff;
+  margin-top:10px;
+  font-size:1.1rem;
+}
+
+.lightbox-prev, .lightbox-next {
+  position:absolute;
+  top:50%;
+  font-size:3rem;
+  color:#fff;
+  cursor:pointer;
+  padding:15px;
+  user-select:none;
+}
+.lightbox-prev { left:20px; }
+lightbox-next { right:20px; }
+
+lightbox-close {
+  position:absolute;
+  top:15px;
+  right:25px;
+  color:white;
+  font-size:2.5rem;
+  cursor:pointer;
+}
+
+/* Contact Form Success Box Styling */
+#successBox {
+  display: none;
+  background: #28a745;
+  color: #fff;
+  padding: 16px 24px;
   border-radius: 8px;
-}
-
-/* Map styling */
-#map {
-  height: 400px;
-  border: 2px solid #ff6b00;
-  border-radius: 10px;
-  margin-top: 15px;
-}
-
-/* Footer styling */
-footer {
-  margin-top: 40px;
+  margin: 20px 0;
   text-align: center;
-  padding-bottom: 20px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(40,167,69,0.15);
 }
 
-/* Lists for About page */
-ul {
-  list-style: disc;
-  padding-left: 20px;
+/* Donate Now Form Success Box Styling */
+#successBox {
+  display: none;
+  background: #28a745;
+  color: #fff;
+  padding: 16px 24px;
+  border-radius: 8px;
+  margin: 20px 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(40,167,69,0.15);
 }
+
+    /* =======================
+       Form Styling
+       ======================= */ 
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #e63946, #ff7b00);
+      margin: 0;
+      padding: 0;
+    }
+
+    main {
+      max-width: 600px;
+      background: white;
+      padding: 30px;
+      margin: 50px auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      text-align: center;
+      color: #d62828;
+      margin-bottom: 25px;
+    }
+
+    label { display: block; margin-top: 15px; font-weight: bold; color: #333; }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 2px solid #ccc;
+      font-size: 1rem;
+      transition: 0.3s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #ff7b00;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(90deg, #e63946, #ff7b00);
+      border: none;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      transform: scale(1.03);
+    }
+
+    /* Success popup */
+    #successBox {
+      display: none;
+      background: #d4edda;
+      color: #155724;
+      border: 2px solid #c3e6cb;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+  body { font-family: Arial, sans-serif; background: #f5f5f5; margin: 20px; }
+  h1 { color: #ff6b00; }
+  form { background: #fff; padding: 20px; max-width: 600px;
+         border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+  label { font-weight: bold; margin-top: 10px; display: block; }
+  select, input { width: 100%; padding: 8px; margin-top: 5px; }
+  input[type="submit"] {
+    background: #ff6b00;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  #map {
+    height: 400px;
+    margin-top: 20px;
+    border: 2px solid #ff6b00;
+    border-radius: 8px;
+  }
+  footer { margin-top: 30px; text-align: center; }

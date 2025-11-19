@@ -5,75 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us - SANBS</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #e63946, #ff7b00);
-      margin: 0;
-      padding: 0;
-    }
-
-    main {
-      max-width: 600px;
-      background: white;
-      padding: 30px;
-      margin: 50px auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    h1 {
-      text-align: center;
-      color: #d62828;
-      margin-bottom: 25px;
-    }
-
-    label { display: block; margin-top: 15px; font-weight: bold; color: #333; }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      border: 2px solid #ccc;
-      font-size: 1rem;
-      transition: 0.3s ease;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      border-color: #ff7b00;
-      outline: none;
-    }
-
-    button {
-      width: 100%;
-      padding: 14px;
-      background: linear-gradient(90deg, #e63946, #ff7b00);
-      border: none;
-      color: white;
-      font-size: 1.1rem;
-      font-weight: bold;
-      border-radius: 8px;
-      margin-top: 20px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      transform: scale(1.03);
-    }
-
-    /* Success popup */
-    #successBox {
-      display: none;
-      background: #d4edda;
-      color: #155724;
-      border: 2px solid #c3e6cb;
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      font-weight: bold;
-      text-align: center;
-    }
-  </style>
+  <link rel="stylesheet" href="../CSS">
 </head>
 <body>
 
@@ -110,20 +42,8 @@
 
   </main>
 
-<script>
-  // Show success message & reset page
-  document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault(); // stop the page from leaving
-
-    document.getElementById("successBox").style.display = "block"; // show success
-    this.reset(); // clear the form
-
-    // Hide after 4 seconds
-    setTimeout(() => {
-      document.getElementById("successBox").style.display = "none";
-    }, 4000);
-  });
-</script>
+  <footer>
+    <p>&copy; 2025 SANBS | Contact:
 
 </body>
 </html>
