@@ -57,6 +57,10 @@ main {
 }
 
 /* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #000 !important;
+}
+
 h1 {
   color: #ff6b00;
   margin-bottom: 20px;
@@ -629,4 +633,4 @@ lightbox-close {
       transition: transform 0.3s ease;
     }
     .gallery img:hover { transform: scale(1.05); }
- 
+

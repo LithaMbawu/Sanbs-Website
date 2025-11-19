@@ -21,12 +21,8 @@ const DATA = {
     { type:"AB-", status:"Critical" }
   ],
 
-  gallery: [
-    { src:"assets/gallery/drive1.jpg", alt:"Community blood drive 1" },
-    { src:"assets/gallery/drive2.jpg", alt:"Volunteers at a blood drive" },
-    { src:"assets/gallery/drive3.jpg", alt:"Donor giving blood" },
-    { src:"assets/gallery/drive4.jpg", alt:"SANBS mobile clinic" }
-  ]
+  
+  
 };
 
 /* ============================================================
@@ -45,9 +41,24 @@ document.addEventListener("DOMContentLoaded", () => {
   initEmailJS();
   initAccordion();
   initTabs();
+  initDonationTypeExplanation();
 
-  // MAP — Province-based only (clean version)
+  
   initProvinceMap();
+
+ 
+  const socialLinks = document.querySelectorAll('.social-link');
+  socialLinks.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+      link.style.transform = 'scale(1.15)';
+      link.style.color = '#e30613';
+      link.style.transition = 'all 0.3s';
+    });
+    link.addEventListener('mouseleave', () => {
+      link.style.transform = 'scale(1)';
+      link.style.color = '';
+    });
+  });
 });
 
 /* ============================================================
@@ -354,8 +365,44 @@ function initTabs(){
   });
 }
 
+function showProductExplanation() {
+  const type = document.getElementById('donation-type').value;
+  const box = document.getElementById('product-explanation');
+  let text = '';
+  if(type === 'whole') {
+    text = '<strong>Whole Blood:</strong> Contains all blood components. Used in trauma and surgery.';
+  } else if(type === 'plasma') {
+    text = '<strong>Plasma:</strong> Liquid part of blood, used for clotting disorders, burns, and shock.';
+  } else if(type === 'platelets') {
+    text = '<strong>Platelets:</strong> Help blood clot, vital for cancer and bleeding disorders.';
+  } else {
+    text = '';
+  }
+  box.innerHTML = text;
+}
 
+function initDonationTypeExplanation() {
+  const select = document.getElementById('donation-type');
+  if(!select) return;
+  select.addEventListener('change', showProductExplanation);
+}
 
-    function loadPage(page) {
-      document.getElementById("content").src = 'html/'+page;
-    }
+function loadPage(page) {
+  document.getElementById("content").src = 'html/'+page;
+}
+ 
+function showProductExplanation() {
+  const type = document.getElementById('donation-type').value;
+  const box = document.getElementById('product-explanation');
+  let text = '';
+  if(type === 'whole') {
+    text = '<strong>Whole Blood:</strong> Contains all blood components. Used in trauma and surgery.';
+  } else if(type === 'plasma') {
+    text = '<strong>Plasma:</strong> Liquid part of blood, used for clotting disorders, burns, and shock.';
+    } else if(type === 'platelets') {
+    text = '<strong>Platelets:</strong> Help blood clot, vital for cancer and bleeding disorders.';
+  } else {
+    text = '';
+  }
+  box.innerHTML = text;
+}

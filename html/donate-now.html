@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Donate Now - SANBS</title>
 
+<!-- SEO INSTRUCTION: Optimise for SEO: Implement SEO best practices, including keyword optimisation, meta tags, and alt text. -->
+
 <!-- Leaflet CSS -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <link rel="stylesheet" href="../CSS">
@@ -29,12 +31,13 @@
   </select>
 
   <label>Donation Type:</label>
-  <select id="donation-type" required>
+  <select id="donation-type" required onchange="showProductExplanation()">
     <option value="">--Select Type--</option>
     <option value="whole">Whole Blood (every 56 days)</option>
     <option value="plasma">Plasma (every 2 weeks)</option>
     <option value="platelets">Platelets (every month)</option>
   </select>
+  <div id="product-explanation" style="margin:10px 0; color:#333;"></div>
 
   <label>Date of Last Donation:</label>
   <input type="date" id="last-donation" required>
@@ -49,6 +52,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script src="../JS.js"></script>  
+
 
 
 </body>
